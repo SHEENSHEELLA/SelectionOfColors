@@ -14,6 +14,8 @@ document.addEventListener('click', (event) => {
 
     node.classList.toggle('fa-lock-open')
     node.classList.toggle('fa-lock')
+  } else if (type === 'copy') {
+    copyToClickBoard(event.target.textContent)
   }
 })
 
@@ -25,6 +27,10 @@ document.addEventListener('click', (event) => {
 //   }
 //   return '#' + color
 // }
+
+function copyToClickBoard(text) {
+  return navigator.clipboard.writeText(text)
+}
 
 function setRandomColors() {
   cols.forEach((col) => {
